@@ -999,10 +999,9 @@ function doDownload(){
   saveAsset(a);
 }
 function saveAsset(a){
-  if(!a.video){ toast('Opening on YouMotion…'); const w=window.open(a.link,'_blank'); if(!w) location.href=a.link; return; }
-  toast('Opening clip — tap Share → Save Video');
-  const w=window.open(a.video,'_blank');   // native player lets you Save Video to Photos
-  if(!w) location.href=a.video;
+  // The real asset is auth+subscription gated on YouMotion — open the item page to download it there.
+  toast('Opening on YouMotion — sign in to save the full asset');
+  const w=window.open(a.link,'_blank'); if(!w) location.href=a.link;
 }
 /* ---- inline player ---- */
 const playIcon=()=>'<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>';
