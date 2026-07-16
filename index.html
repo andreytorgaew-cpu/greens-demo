@@ -392,6 +392,13 @@ body{
 
 svg{stroke-linecap:round;stroke-linejoin:round;}
 
+/* ===== YouMotion real media ===== */
+.ymmedia{position:absolute;inset:0;background:linear-gradient(135deg,#221d3f,#12101f);overflow:hidden;}
+.ymmedia img,.ymmedia video{width:100%;height:100%;object-fit:cover;display:block;}
+.ymmedia.err{background:linear-gradient(135deg,#2a2450,#14122a);}
+.pbadge.plus{background:var(--pro);color:#3a2a00;}
+.pbadge.prime{background:linear-gradient(135deg,#ffd76a,#f5a623);color:#3a2a00;}
+
 /* ===== REAL DEVICE / MOBILE: full-screen app, no mockup chrome ===== */
 @media (max-width:560px){
   html,body{height:100%;overscroll-behavior:none;}
@@ -602,10 +609,10 @@ svg{stroke-linecap:round;stroke-linejoin:round;}
         <div class="v-body">
           <div class="v-title-row"><h2 id="vTitle">—</h2><span class="pbadge pro" id="vBadge" style="position:static;"><svg width="9" height="9" viewBox="0 0 24 24" fill="#3a2a00"><path d="M3 8l4.5 3L12 5l4.5 6L21 8l-1.8 10H4.8L3 8Z"/></svg>PRO</span></div>
           <div class="v-author"><div class="a" id="vAuthAv">M</div><div><div class="n" id="vAuthor">—</div><div class="r">Motion designer</div></div></div>
-          <div class="v-stats"><div class="stat"><b id="vRes">4K</b><span>Resolution</span></div><div class="stat"><b id="vFps">60 fps</b><span>Frame rate</span></div><div class="stat"><b id="vOr">Vertical</b><span>Orientation</span></div></div>
+          <div class="v-stats"><div class="stat"><b id="vRes">Plus</b><span>Plan</span></div><div class="stat"><b id="vFps">4K</b><span>Quality</span></div><div class="stat"><b id="vOr">Vertical</b><span>Orientation</span></div></div>
           <div class="v-desc" id="vDesc">—</div>
           <div class="tags" id="vTags"></div>
-          <div class="dl-bar"><div class="dl-note" id="vDlNote">Downloads left: <b>3 / 5</b></div><button class="btn btn-primary" id="vDlBtn" onclick="openDl()">Download</button></div>
+          <div class="dl-bar"><div class="dl-note" id="vDlNote">Downloads left: <b>3 / 5</b></div><button class="btn btn-primary" id="vDlBtn" onclick="openDl()">Download</button><a class="btn btn-ghost" id="vYm" href="#" target="_blank" rel="noopener" style="margin-top:10px;text-decoration:none">View on YouMotion ↗</a></div>
         </div>
       </div>
 
@@ -680,10 +687,10 @@ svg{stroke-linecap:round;stroke-linejoin:round;}
       <div class="sheet" id="dlSheet">
         <div class="grab"></div>
         <div class="sheet-h"><h3>Download</h3><div class="x" onclick="closeDl()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></div></div>
-        <div style="padding:2px 22px 10px;font-size:12.5px;color:var(--txt-faint)">Every clip downloads on a <b style="color:var(--green)">green screen</b> (chroma) — ready for CapCut, Premiere and any editor</div>
-        <div class="dlopt" onclick="download('1080')"><div class="di"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div><div class="dt"><b>1080p · Green screen</b><span>MP4 · H.264 · ~12 MB</span></div><div class="dr">FREE</div></div>
-        <div class="dlopt locked" onclick="download('4k')"><div class="di"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div><div class="dt"><b>4K · Green screen</b><span>MP4 · H.265 · ~48 MB</span></div><div class="dr">PRO</div></div>
-        <div class="dlopt locked" onclick="download('alpha')"><div class="di"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div><div class="dt"><b>ProRes 4444 · Alpha</b><span>MOV · with transparency</span></div><div class="dr">PRO</div></div>
+        <div style="padding:2px 22px 10px;font-size:12.5px;color:var(--txt-faint)">Download and drop it straight into <b style="color:var(--green)">CapCut</b>, Premiere or any editor on your phone</div>
+        <div class="dlopt" onclick="download('1080')"><div class="di"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div><div class="dt"><b>1080p · MP4</b><span>H.264 · mobile-ready</span></div><div class="dr">FREE</div></div>
+        <div class="dlopt locked" onclick="download('4k')"><div class="di"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div><div class="dt"><b>4K · MP4</b><span>H.265 · high quality</span></div><div class="dr">PRO</div></div>
+        <div class="dlopt locked" onclick="download('alpha')"><div class="di"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div><div class="dt"><b>ProRes 4444 · Alpha</b><span>MOV · transparent background</span></div><div class="dr">PRO</div></div>
         <div style="height:20px"></div>
       </div>
 
@@ -723,8 +730,7 @@ svg{stroke-linecap:round;stroke-linejoin:round;}
 </div>
 
 <script>
-const CATS = ["Featured","Transitions","Elements","Titles","Backgrounds","3D","Realistic"];
-const COUNTS = {Featured:123,Transitions:1066,Elements:1066,Titles:1066,Backgrounds:123,"3D":540,Realistic:820};
+const CATS = ["Featured","Transitions","Fire & Energy","Shapes & Liquid","Seasonal & Cartoon"];
 function fmt(n){return n.toLocaleString('en-US').replace(/,/g,'.');}
 
 function pv(style,title){
@@ -734,63 +740,108 @@ function pv(style,title){
   return `<div class="pv ${style}${streak}">${extra}${txt}</div>`;
 }
 
-const ASSETS = [
-  {id:1,name:"Vertical Transitions",author:"Nova FX",cat:"Transitions",style:"s-vt",poster:"VERTICAL TRANSITIONS",pro:false,dur:"0:04",res:"4K",orient:"Vertical",loop:true,tags:["transition","vertical","hard cut"],desc:"A punchy vertical transition for reels and shorts. Composited on a green screen."},
-  {id:2,name:"Stylish Intro",author:"PixelWave",cat:"Titles",style:"s-stylish",poster:"STYLISH",pro:false,dur:"0:05",res:"4K",orient:"Square",loop:false,tags:["intro","brush","bold"],desc:"A bold intro with a yellow brush stroke. Drop your own text on top."},
-  {id:3,name:"Typography Pack",author:"TypeLab",cat:"Titles",style:"s-typo",poster:"TYPO",pro:false,dur:"0:06",res:"Full HD",orient:"Vertical",loop:false,tags:["typography","titles","kinetic"],desc:"Kinetic typography for headlines and captions."},
-  {id:4,name:"Light Leaks",author:"Ambient",cat:"Elements",style:"s-leak",poster:"LIGHT LEAKS",pro:false,dur:"0:10",res:"4K",orient:"Horizontal",loop:true,tags:["light leaks","overlay","warm"],desc:"Warm light-leak overlays. Layer over your clip for atmosphere."},
-  {id:5,name:"Grunge Intro",author:"Motion Creator",cat:"Featured",style:"s-grunge",poster:"GRUNGE INTRO",pro:true,dur:"0:08",res:"4K",orient:"Vertical",loop:false,tags:["grunge","logo reveal","texture"],desc:"Make your mark with this striking grunge intro that fits your brand personality."},
-  {id:6,name:"Neon Titles",author:"PixelWave",cat:"Titles",style:"s-neon",poster:"NEON",pro:true,dur:"0:04",res:"4K",orient:"Horizontal",loop:false,tags:["neon","titles","glow"],desc:"Glowing neon titles for night-time, aesthetic content."},
-  {id:7,name:"Chrome Cube 3D",author:"Volumetric",cat:"3D",style:"s-3d",poster:"",pro:true,dur:"0:08",res:"4K",orient:"Square",loop:true,tags:["3d","chrome","loop"],desc:"A spinning chromed 3D cube for a premium look."},
-  {id:8,name:"Fire Transition",author:"Ember",cat:"Transitions",style:"s-fire",poster:"FIRE",pro:false,dur:"0:03",res:"4K",orient:"Vertical",loop:false,tags:["fire","transition","hot"],desc:"A fiery transition between scenes. An energetic accent on the beat."},
-  {id:9,name:"Aqua Flow BG",author:"Ambient",cat:"Backgrounds",style:"s-teal",poster:"AQUA FLOW",pro:false,dur:"0:15",res:"4K",orient:"Horizontal",loop:true,tags:["background","loop","calm"],desc:"A calm looping background under text and logos."},
-  {id:10,name:"Bold Typography",author:"TypeLab",cat:"Titles",style:"s-typo",poster:"TYPO",pro:true,dur:"0:05",res:"4K",orient:"Vertical",loop:false,tags:["typography","bold","reveal"],desc:"Large bold typography with a dramatic reveal."},
-  {id:11,name:"Purple Wipe",author:"Nova FX",cat:"Transitions",style:"s-vt",poster:"WIPE",pro:false,dur:"0:03",res:"Full HD",orient:"Horizontal",loop:false,tags:["wipe","transition","clean"],desc:"A clean diagonal wipe transition in purple tones."},
-  {id:12,name:"Sparkle Elements",author:"Ember",cat:"Elements",style:"s-fire",poster:"SPARKLE",pro:false,dur:"0:05",res:"4K",orient:"Square",loop:true,tags:["sparkle","glitter","accent"],desc:"Glitter particles as a glam accent for beauty content."},
-  {id:13,name:"Ocean Realistic",author:"Ambient",cat:"Realistic",style:"s-teal",poster:"OCEAN",pro:true,dur:"0:12",res:"4K",orient:"Horizontal",loop:true,tags:["realistic","water","nature"],desc:"A realistic ocean layer for atmospheric scenes."},
-  {id:14,name:"Confetti Pop",author:"Ember",cat:"Featured",style:"s-fire",poster:"CONFETTI",pro:false,dur:"0:04",res:"4K",orient:"Vertical",loop:false,tags:["confetti","party","burst"],desc:"A festive confetti burst for celebration clips."},
+/* ===== REAL content pulled from youmotion.com/search/motion-graphics ===== */
+const YM='https://ym-production-assets-public.s3.amazonaws.com/motion/';
+/* [id, title, author, tier, posterPath, videoPath] */
+const RAW=[
+["321173","Abstract Liquid Shapes","FXbox","Plus","01989e10-bdd2-7078-9b2c-80c5079803af/null_Pic-000","01989e10-bdd2-7078-9b2c-80c5079803af/abstract-liquid-shapes-321173_Abstract-Liquid-Shapes-YMWM"],
+["149733","Fire Elements And Transitions","2DFX","Plus","01995727-9a93-7315-969f-9494f6bef0cb/fire-elements-and-transitions-149733_MG","01995727-9a93-7315-969f-9494f6bef0cb/fire-elements-and-transitions-149733_Fire-Elements-Titles-And-Transitions-YMWM"],
+["337278","Christmas Mask And Sticker Animations","2DFX","Plus","01995ba3-6ab2-70ef-89be-95a7fce629d6/null_Pic-MG","01995ba3-6ab2-70ef-89be-95a7fce629d6/christmas-mask-and-sticker-animations-for-337278_Christmas-Mask-And-Sticker-Animations-YMWM"],
+["126079","Vertical Liquid Hand Drawn Transitions","FXbox","Prime","0198cffb-de92-70c0-b79a-e41d1430e316/null_Vertical-Liquid-Hand-Drawn-Transitions-Pic","0198cffb-de92-70c0-b79a-e41d1430e316/vertical-liquid-hand-drawn-transitions-126079_Vertical-Liquid-Hand-Drawn-Transitions-YMWM"],
+["115979","Simple Cartoon Fire Energy And Explosions","FXbox","Prime","0198b10b-cb48-7345-888f-f87feed4e565/null_Pic-MG","0198b10b-cb48-7345-888f-f87feed4e565/simple-cartoon-fire-energy-and-explosions-115979_Cartoon-Fire-Energy-And-Explosions-YMWM"],
+["763152","Vertical Seamless Fire Transitions","FXbox","Plus","0198cfff-894e-71d3-aa3e-477575a6c384/null_Vertical-Seamless-Fire-Transitions-Pic","0198cfff-894e-71d3-aa3e-477575a6c384/vertical-seamless-fire-transitions-763152_Vertical-Seamless-Fire-Transitions-YMWM"],
+["275808","Smoke Vertical Transitions","FXbox","Plus","0198cfee-537a-7169-b8ee-3e9587307f24/null_Pic-MG",""],
+["425514","Seamless Transitions","FXbox","Prime","0198d005-94b3-72ec-b280-47eba43e63a2/null_Transitions-Pic",""],
+["212600","Abstract Geometry Elements","FXbox","Prime","019aee47-39eb-713d-b3db-ffa0f6598122/null_Pic-MA",""],
+["998298","Paint Transitions Pack","MisterFlash","Prime","01990fd0-f29b-717e-a041-bc11f1d90a5d/null_Pic-MG",""],
+["537333","Hand Drawn Dynamic Shapes","FXbox","Plus","0198a212-b0bb-7042-bab6-d19ec597fab2/null_Pic",""],
+["470510","Cartoon Snowflakes Pack","FXbox","Prime","01989e70-e99f-73d3-bf89-1f1dc6ca7fc2/cartoon-snowflakes-pack-470510_Pic-000",""],
+["561543","Cartoon Smoke","FXbox","Plus","01989e50-d16c-71db-8a8c-e75d51a6c547/null_Grid",""],
+["618581","Vertical Hand Drawn Transitions","FXbox","Prime","0198cff7-5a73-72fa-978a-3d05cab581ac/null_Pic",""],
+["771693","Hand Drawn Smoke Elements And Transitions","2DFX","Plus","01995710-b00a-72bd-829e-433416f5f9a3/hand-drawn-smoke-elements-and-transitions-771693_Pic",""],
+["450590","Grain Shapes","FXbox","Plus","01989ed7-6f9f-71d3-99ea-8a6351ad7793/null_Pic",""],
+["455654","Doodle Alphabet And Transitions","FXbox","Plus","01989d97-799b-722c-ad89-8d2b58c3c07a/null_Pic",""],
+["966324","Cartoon Fire Elements","MisterFlash","Plus","0198e102-25f3-71a2-91a3-79cee45fa398/null_Pic",""],
+["911334","Liquid Transitions Pack 03","MisterFlash","Plus","0198e1e2-3c2f-73e8-8b0a-b895d07c714a/null_Pic-MG",""],
+["947986","Liquid Motion Shapes","2DFX","Plus","01995b51-a929-72f6-aa8e-9935f39267f0/null_Pic-MG",""],
+["502861","Flash Fx Elements Pack","FXbox","Plus","019b211f-dd8c-717f-abe7-22712fbea222/null_Pic-000",""],
+["281741","Lightning Pack","FXbox","Plus","01989e99-8e45-72be-b37a-10df76c2d71e/lightning-pack-281741_pic",""],
+["675803","Liquid Elements","FXbox","Plus","01989ea9-af9a-70df-825f-24dd44a7a050/null_Pic-00",""],
+["621707","Liquid Shapes","FXbox","Plus","01989eae-4a9c-73af-9baa-0a1ac706388b/null_Pic-000",""],
+["103424","Cartoon Liquid","FXbox","Plus","0198a1d1-8345-7153-971b-f2a41784db56/null_Cartoon-Liquid-YM--PIC",""],
+["202304","Sparks Pack","MisterFlash","Prime","01990ed6-afc7-727d-8bb4-182742426fa4/sparks-pack-202304_Pic-MG",""],
+["226075","Seamless Paint Transitions","MisterFlash","Plus","01992392-209f-7181-a21b-fa0fe82c7732/null_Seamless-Paint-Transitions-Pic-MG",""],
+["171227","Cartoon Sweets And Fruits Sticker Animations","2DFX","Plus","0199a471-5426-703d-acfb-8e4f4424db6b/null_Cartoon-Sweets-And-Fruits-Pic",""],
+["665503","Smooth Transitions","FXbox","Plus","0198a25b-2bf4-7112-b8f4-a22e3e5d8dac/null_Pic-000",""],
+["974644","Abstract Liquid Elements","FXbox","Plus","01989e0a-e783-7028-9a3f-c064b92a5ee0/null_Pic-000",""],
+["752858","Christmas Masks","FXbox","Plus","01989e7b-75a6-7104-ab05-df709ff99328/christmas-masks-752858_Pic",""],
+["688006","Action Elements Pack","FXbox","Plus","0198a193-a2a8-7197-8a6d-f9581936714b/null_Pic",""],
+["485352","Snowfall Seamless Transitions","MisterFlash","Plus","01992398-98e2-71c9-8c00-5234ee9797ab/null_Snowfall-Seamless-Transitions-Pic",""],
+["648658","Flying Shapes","FXbox","Plus","01989e8e-e4a4-7202-84e4-91acfea1dfe4/flying-shapes-648658_Pic-000",""],
+["744047","Cartoon Ice Elements","FXbox","Plus","0198a843-060f-7214-8f7a-73f9e75827cb/null_Pic",""],
+["491083","Fish Vertical Transitions","FXbox","Prime","0198cbf6-5bd1-70fd-aae7-b13fe6bdd6f4/null_Pic-MG",""],
+["327566","Neon Elements","MisterFlash","Plus","0198e1f7-1c23-7078-980c-8df7720733c9/null_Pic-MG",""],
+["588689","Brush Backgrounds And Overlays","MisterFlash","Prime","01991e77-e250-72fa-95b2-e2b76fdb2e8c/null_Pic",""],
+["634501","Seamless Scribble Transitions","MisterFlash","Plus","0199239b-354e-7207-a16d-f8304c83a0ae/null_Pic-MG",""]
 ];
-const FEATURED_IDS = [5,1,7,2,14];
+function ymcat(t){t=t.toLowerCase();
+  if(/transition/.test(t))return'Transitions';
+  if(/fire|energy|lightning|spark|flash|neon|action|smoke/.test(t))return'Fire & Energy';
+  if(/cartoon|christmas|snow|ice|sweets|mask|fish|flying|doodle/.test(t))return'Seasonal & Cartoon';
+  return'Shapes & Liquid';}
+const ASSETS=RAW.map(x=>({
+  id:x[0], name:x[1], author:x[2], tier:x[3], pro:x[3]==='Prime',
+  poster:YM+x[4], video:x[5]?YM+x[5]:'',
+  link:'https://youmotion.com/motion-graphics/'+x[1].toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'-'+x[0],
+  cat:ymcat(x[1]),
+  orient:/vertical/i.test(x[1])?'Vertical':'Horizontal',
+  res:'4K', loop:true,
+  tags:x[1].toLowerCase().split(/\s+/).filter(w=>w.length>2).concat([x[2].toLowerCase()]),
+  desc:x[1]+' — '+x[3]+' motion graphics by '+x[2]+'. Download and drop it straight into CapCut, Premiere or any editor.'
+}));
+const COUNTS={};
+CATS.forEach(c=>COUNTS[c]=ASSETS.filter(a=>a.cat===c).length);
+const FEATURED_IDS=ASSETS.filter(a=>a.video).map(a=>a.id).concat(["212600","998298"]);
+COUNTS.Featured=FEATURED_IDS.length;
+function byId(id){return ASSETS.find(a=>a.id===id);}
+function ymThumb(a,cls){return `<div class="ymmedia ${cls||''}"><img loading="lazy" src="${a.poster}" alt="${a.name}" onerror="this.closest('.ymmedia').classList.add('err');this.remove();"></div>`;}
 
 let state = {favs:new Set(),used:2,limit:5,pro:false,current:null,history:["home"]};
 let gridCtx = {cat:null};
 
 /* ---- cards ---- */
+function badge(a){return `<span class="pbadge ${a.pro?'prime':'plus'}"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.9L21 8.5l-4.9 4.2L17.6 20 12 16.4 6.4 20l1.5-7.3L3 8.5l6.6-.6L12 2z"/></svg>${a.tier}</span>`;}
+function heart(a){const fav=state.favs.has(a.id);return `<button class="pfav ${fav?'on':''}" onclick="event.stopPropagation();toggleFav('${a.id}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="${fav?'#ff5b7a':'none'}" stroke="${fav?'#ff5b7a':'#fff'}" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2 5.5 5.5 5.5c2 0 3.2 1.2 3.5 2 .3-.8 1.5-2 3.5-2 3.5 0 4.5 3.5 3 6.5-2.5 4.5-9.5 9-9.5 9Z"/></svg></button>`;}
 function railCard(a){
   const wide = a.orient==='Horizontal';
-  const fav = state.favs.has(a.id);
-  return `<div class="pcard ${wide?'wide':''}" onclick="openVideo(${a.id})">
-    <div class="poster">${pv(a.style,a.poster)}
-      ${a.pro?'<span class="pbadge pro"><svg width="9" height="9" viewBox="0 0 24 24" fill="#3a2a00"><path d="M3 8l4.5 3L12 5l4.5 6L21 8l-1.8 10H4.8L3 8Z"/></svg>PRO</span>':''}
-      <button class="pfav ${fav?'on':''}" onclick="event.stopPropagation();toggleFav(${a.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="${fav?'#ff5b7a':'none'}" stroke="${fav?'#ff5b7a':'#fff'}" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2 5.5 5.5 5.5c2 0 3.2 1.2 3.5 2 .3-.8 1.5-2 3.5-2 3.5 0 4.5 3.5 3 6.5-2.5 4.5-9.5 9-9.5 9Z"/></svg></button>
-      ${a.loop?'<span class="loop"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M17 2l4 4-4 4M7 22l-4-4 4-4M21 6H8a5 5 0 0 0-5 5M3 18h13a5 5 0 0 0 5-5"/></svg></span>':'<span class="loop"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>'}
+  return `<div class="pcard ${wide?'wide':''}" onclick="openVideo('${a.id}')">
+    <div class="poster">${ymThumb(a)}
+      ${badge(a)}${heart(a)}
       <span class="play"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
     <div class="p-name">${a.name}</div>
-    <div class="p-meta">${a.res} · ${a.dur}${a.loop?' · loop':''}</div>
+    <div class="p-meta">by ${a.author}${a.video?' · preview':''}</div>
   </div>`;
 }
 function gridCard(a){
-  const fav = state.favs.has(a.id);
-  return `<div class="gcard" onclick="openVideo(${a.id})">
-    <div class="poster">${pv(a.style,a.poster)}
-      ${a.pro?'<span class="pbadge pro"><svg width="9" height="9" viewBox="0 0 24 24" fill="#3a2a00"><path d="M3 8l4.5 3L12 5l4.5 6L21 8l-1.8 10H4.8L3 8Z"/></svg>PRO</span>':''}
-      <button class="pfav ${fav?'on':''}" onclick="event.stopPropagation();toggleFav(${a.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="${fav?'#ff5b7a':'none'}" stroke="${fav?'#ff5b7a':'#fff'}" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2 5.5 5.5 5.5c2 0 3.2 1.2 3.5 2 .3-.8 1.5-2 3.5-2 3.5 0 4.5 3.5 3 6.5-2.5 4.5-9.5 9-9.5 9Z"/></svg></button>
+  return `<div class="gcard" onclick="openVideo('${a.id}')">
+    <div class="poster">${ymThumb(a)}
+      ${badge(a)}${heart(a)}
       <span class="play"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
     </div>
     <div class="p-name">${a.name}</div>
-    <div class="p-meta">${a.author} · ${a.orient}</div>
+    <div class="p-meta">by ${a.author}</div>
   </div>`;
 }
 
 /* ---- HOME ---- */
 function renderHome(){
   let html="";
-  const feat = FEATURED_IDS.map(id=>ASSETS.find(a=>a.id===id));
+  const feat = FEATURED_IDS.map(byId).filter(Boolean);
   html += sectionHtml("Featured", feat);
-  ["Transitions","Elements","Titles","Backgrounds"].forEach(cat=>{
+  ["Transitions","Fire & Energy","Shapes & Liquid","Seasonal & Cartoon"].forEach(cat=>{
     const list = ASSETS.filter(a=>a.cat===cat);
-    html += sectionHtml(cat, list.length?list:ASSETS.slice(0,4));
+    if(list.length) html += sectionHtml(cat, list);
   });
   document.getElementById('homeSections').innerHTML = html;
 }
@@ -830,10 +881,13 @@ function removeChip(label){
 let activeFilters = {sort:'popular', cats:new Set(), loop:false, orient:new Set(), res:new Set()};
 function filterAssets(){
   let list = ASSETS.slice();
-  if(activeFilters.cats.size) list=list.filter(a=>activeFilters.cats.has(a.cat));
+  if(activeFilters.cats.size){
+    if(activeFilters.cats.has('Featured')) list=FEATURED_IDS.map(byId).filter(Boolean);
+    else list=list.filter(a=>activeFilters.cats.has(a.cat));
+  }
   if(activeFilters.loop) list=list.filter(a=>a.loop);
   if(activeFilters.orient.size) list=list.filter(a=>activeFilters.orient.has(a.orient));
-  if(activeFilters.res.size) list=list.filter(a=>activeFilters.res.has(a.res));
+  if(activeFilters.res.size) list=list.filter(a=>activeFilters.res.has(a.tier));
   if(activeFilters.sort==='newest') list=list.slice().reverse();
   return list;
 }
@@ -843,10 +897,9 @@ function renderFilterSheet(){
   const cb=(set,v)=>`<div class="opt ${set.has(v)?'on':''}" onclick="tog('${setName(set)}','${v}')"><span class="cb">${set.has(v)?ck:''}</span>${v}</div>`;
   document.getElementById('filtBody').innerHTML = `
     <div class="filt-sec"><h4>Sort by</h4>${rd('popular','Most popular')}${rd('newest','Newest')}</div>
-    <div class="filt-sec"><h4>Category</h4>${CATS.map(c=>cb(activeFilters.cats,c)).join('')}</div>
-    <div class="filt-sec"><h4>Loop</h4><div class="opt ${activeFilters.loop?'on':''}" onclick="togLoop()"><span class="cb">${activeFilters.loop?ck:''}</span>Loop only</div></div>
-    <div class="filt-sec"><h4>Orientation</h4>${["Horizontal","Vertical","Square"].map(o=>cb(activeFilters.orient,o)).join('')}</div>
-    <div class="filt-sec"><h4>Resolution</h4>${["4K","Full HD"].map(r=>cb(activeFilters.res,r)).join('')}</div>`;
+    <div class="filt-sec"><h4>Category</h4>${CATS.filter(c=>c!=='Featured').map(c=>cb(activeFilters.cats,c)).join('')}</div>
+    <div class="filt-sec"><h4>Orientation</h4>${["Horizontal","Vertical"].map(o=>cb(activeFilters.orient,o)).join('')}</div>
+    <div class="filt-sec"><h4>Tier</h4>${["Plus","Prime"].map(r=>cb(activeFilters.res,r)).join('')}</div>`;
 }
 function setName(set){ if(set===activeFilters.cats)return'cats'; if(set===activeFilters.orient)return'orient'; return'res'; }
 function tog(which,v){ const set=activeFilters[which]; if(set.has(v))set.delete(v); else set.add(v); renderFilterSheet(); }
@@ -889,17 +942,23 @@ function renderFav(){ const list=ASSETS.filter(a=>state.favs.has(a.id)); documen
 
 /* ---- video ---- */
 function openVideo(id){
-  const a=ASSETS.find(x=>x.id===id); state.current=a;
-  document.getElementById('vPoster').outerHTML = pv(a.style,a.poster).replace('class="pv','id="vPoster" class="pv');
+  const a=byId(id); state.current=a;
+  document.getElementById('vPoster').outerHTML = a.video
+    ? `<div id="vPoster" class="pv ymmedia"><video src="${a.video}" poster="${a.poster}" autoplay loop muted playsinline></video></div>`
+    : `<div id="vPoster" class="pv ymmedia"><img src="${a.poster}" alt="${a.name}" onerror="this.closest('.ymmedia').classList.add('err');this.remove();"></div>`;
   document.getElementById('vTitle').textContent=a.name;
   document.getElementById('vAuthor').textContent=a.author;
   document.getElementById('vAuthAv').textContent=a.author[0];
-  document.getElementById('vDurTotal').textContent=a.dur;
-  document.getElementById('vRes').textContent=a.res;
+  document.getElementById('vDurTotal').textContent='';
+  document.getElementById('vRes').textContent=a.tier;
+  document.getElementById('vFps').textContent='4K';
   document.getElementById('vOr').textContent=a.orient;
   document.getElementById('vDesc').textContent=a.desc;
   document.getElementById('vTags').innerHTML=a.tags.map(t=>`<span class="tag">#${t}</span>`).join('');
-  const b=document.getElementById('vBadge'); b.style.display=a.pro?'inline-flex':'none';
+  const b=document.getElementById('vBadge'); b.style.display='inline-flex'; b.style.position='static';
+  b.className='pbadge '+(a.pro?'prime':'plus');
+  b.innerHTML='<svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.9L21 8.5l-4.9 4.2L17.6 20 12 16.4 6.4 20l1.5-7.3L3 8.5l6.6-.6L12 2z"/></svg>'+a.tier;
+  const ym=document.getElementById('vYm'); if(ym) ym.href=a.link;
   updateFavIcon(); updateDlBar(); go('video',true);
 }
 function updateFavIcon(){ const on=state.current&&state.favs.has(state.current.id); const svg=document.getElementById('vFav').querySelector('svg'); svg.setAttribute('fill',on?'#ff5b7a':'none'); svg.setAttribute('stroke',on?'#ff5b7a':'#fff'); }
@@ -919,7 +978,7 @@ function download(quality){
   if(!state.pro && state.used>=state.limit){ closeDl(); openPaywall("Limit reached","You've used all 5 free downloads this month. Premium removes the limit."); return; }
   if(!state.pro) state.used++;
   closeDl(); refreshAll(); updateDlBar();
-  toast("Downloaded · green screen · CapCut-ready");
+  toast("Downloaded · ready for CapCut");
 }
 function openPaywall(t,x){ document.getElementById('pwTitle').textContent=t; document.getElementById('pwText').textContent=x; document.getElementById('pwMask').classList.add('show'); document.getElementById('pwSheet').classList.add('show'); }
 function closePaywall(){ document.getElementById('pwMask').classList.remove('show'); document.getElementById('pwSheet').classList.remove('show'); }
@@ -969,8 +1028,7 @@ function renderOnb(){
   const o=ONB[onbIndex];
   let vis="";
   if(o.visual==='grid'){
-    const ids=[1,2,5,4,7,8];
-    vis='<div class="onb-grid">'+ids.map(id=>{const a=ASSETS.find(x=>x.id===id);return `<div class="poster">${pv(a.style,a.poster)}</div>`;}).join('')+'</div>';
+    vis='<div class="onb-grid">'+ASSETS.slice(0,6).map(a=>`<div class="poster">${ymThumb(a)}</div>`).join('')+'</div>';
   } else if(o.visual==='editors'){
     vis='<div class="onb-ed">'+EDITORS.map(e=>`<div class="ed" style="background:${e.g}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">${e.ic}</svg></div>`).join('')+'</div>';
   } else {
